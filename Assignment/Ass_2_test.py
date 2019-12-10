@@ -1,5 +1,6 @@
 from Ass_2 import secretCheck, insSort, binSearch, starOutput
 import random
+#pylint: disable=unused-variable
 # 채점 파일입니다.
 
 C_WHITE = "\033[37m"
@@ -25,8 +26,8 @@ if not test_sec():
 
 # insSort
 
-def test_inss():
-    for i in range (0, 5):
+def test_inss():    
+    for i in range (0, 5): 
         l = random.sample(range(1,100), 10)
         if insSort(l)["li"] != sorted(l):
             return False
