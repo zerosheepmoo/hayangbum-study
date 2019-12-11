@@ -39,7 +39,7 @@ def main():
     if add('he', 'llo') != 'HELLO' or add('Cok', 'e') != 'COKE' or add('Happy set', 'World') != 'HAPPY SETWORLD':
         res -= 4.1
         print(C_RED + "add(s1, s2) 오답!")
-    if rev('oLLeh') != 'HELLO' or rev('ekOC') != 'COKE' or rev('dlrowtes yppah') != 'HAPPY SETWORLD':
+    if rev('oLLeh') != 'hello' or rev('ekOC') != 'coke' or rev('dlrowtes yppah') != 'happy setworld':
         res -= 4.1
         print(C_RED + "rev(s1, s2) 오답!")
     if toP('oLLeh') != '%%%%%' or toP('ekOC') != '%%%%' or toP('dlrowtes yppah') != '%%%%%%%%%%%%%%':
