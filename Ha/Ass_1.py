@@ -46,13 +46,37 @@ def compute(a, b, sig):
         return a%b
 
 def jinsu(n, base):
-   j_array=""
-   jinsu_cal(j_array, n, base)
-   return j_array[::-1]
-
-def jinsu_cal(j_array, n, base):
-    if n<base:
-        j_array+="{0}".format(n)
+    j_array=""
+    while n>=base:
+        if(n%base==10):
+           j_array+='A'
+        elif(n%base==11):
+            j_array+='B'
+        elif(n%base==12):
+            j_array+='C'
+        elif(n%base==13):
+            j_array+='D'
+        elif(n%base==14):
+            j_array+='E'
+        elif(n%base==15):
+            j_array+='F'
+        else:
+            j_array+=str(n%base)
+        n=n//base
+    if n>=10:
+        if(n%base==10):
+           j_array+='A'
+        elif(n%base==11):
+            j_array+='B'
+        elif(n%base==12):
+            j_array+='C'
+        elif(n%base==13):
+            j_array+='D'
+        elif(n%base==14):
+            j_array+='E'
+        elif(n%base==15):
+            j_array+='F'
     else:
-        j_array+=hex(n%base)[2:]
-        jinsu_cal(j_array, n//base, base)
+        j_array+=str(n)
+
+    return j_array[::-1]
