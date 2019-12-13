@@ -20,11 +20,6 @@ def rev(s):
 def toP(s):
     return "%"*len(s)
 
-# 다음의 기능을 포함한 정수 계산기를 만들려한다.
-# oddOrEven(n): n에 대하여 홀짝 판별
-# compute(a, b, sig): a와 b를 sig 연산한다. ex) compute(1, 2, "-") => -1
-# jinsu(n, base): 10진수 n을 base에 해당하는 진수로 표현하는 기능
-
 def oddOrEven(n):
     if n%2==0:
         return "even"
