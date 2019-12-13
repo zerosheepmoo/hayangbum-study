@@ -72,10 +72,10 @@ def main():
         print(C_RED + "compute(a, b, 'mod') 오답!")
     
     # 정수계산기 - 진수
-    if jinsu(13, 2) != '1101' or jinsu(13, 8) != 15 or jinsu(13, 16) != 'D':
+    if jinsu(13, 2) != '1101' or jinsu(13, 8) != '15' or jinsu(13, 16) != 'D':
         res -=30
         print(C_RED + "jinsu 1차 목표 실패!")
-    if jinsu(23, 3) != '25' or jinsu(43, 11) != '3A' or jinsu(50, 7) != '101':
+    if jinsu(23, 3) != '212' or jinsu(43, 11) != '3A' or jinsu(50, 7) != '101':
         res -=30
         print(C_RED + "jinsu 2차 목표 실패!")
     res = round(res, 2)
