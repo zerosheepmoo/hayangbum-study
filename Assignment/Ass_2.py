@@ -1,3 +1,4 @@
+#pylint: disable=unused-variable
 # 2-1
 # 비밀번호 검사기. 20 점
 # 다음의 조건들에 해당하는 비밀번호면 True, 아니면 False를 반환한다.
