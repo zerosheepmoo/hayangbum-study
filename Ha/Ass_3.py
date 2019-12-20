@@ -160,24 +160,29 @@ def palin_rec(str):
 def bina_rec(lst, tar):
     i=0
     j=len(lst)-1
-    mid=(i+j)//2
+    return bina_rec_help(lst, tar, i, j)
 
-    if i>j or lst==[]:
-        return -1
-    else:
+def bina_rec_help(lst, tar, i, j):
+    if i<j:
+        mid=(i+j)//2
         if lst[mid]==tar:
             return mid
+        elif mid==i or mid==j:
+            if lst[i]==tar:
+                return i
+            elif lst[j]==tar:
+                return j
+            else:
+                return -1
         else:
             if lst[mid]>tar:
-                if(bina_rec(lst[:mid+1], tar)==-1):
-                    return -1
-                else:
-                    return mid+1+bina_rec(lst[:mid+1], tar)
+                return bina_rec_help(lst, tar, i, mid-1)
             else:
-                if(bina_rec(lst[mid+1:], tar)==-1):
-                    return -1
-                else:
-                    return mid+1+bina_rec(lst[mid+1:], tar)
+                return bina_rec_help(lst, tar, mid+1, j)
+    elif i==j and lst[i]==tar:
+        return i
+    else:
+        return -1
 
 #print(bina_rec([1,2,3,5,6],3))
 #print(bina_rec([1,2,3,4],4))
@@ -202,6 +207,7 @@ def sora(thing, act):
 
     if thing == "벌레" and act == "친구를 줘":
         print("돼.")
+        return True
     elif thing in ['피자', '햄버거', '사과'] and act == "먹어":
         print('그래.')
         return True
@@ -286,4 +292,4 @@ func(0) # 42 반환
 func(1) # 43 반환
 
 def decre_creator(n):
-    return lambda x: x -n
+    return lambda x: n - x
