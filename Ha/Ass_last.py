@@ -46,6 +46,14 @@ def saveList(data):
 
 # searchID(id: string): 무기(id를 포함하는 상품코드를 갖고 있는 무기의 리스트 출력) 검색
 
+def searchID_sim(data, id):
+    lst=[]
+    for idx in range(0, len(data)):
+        if id in data[idx][3]:
+            lst.append(idx)
+    
+    return lst
+
 def searchID(data, id):
     i=0
     j=len(data)-1
@@ -156,18 +164,26 @@ def manangeWeapon():
         elif sel == '2i':
             print("--------SEARCHING by ID")
             id = input("\n원하는 무기의 ID를 입력해주세요: ")
-            result = searchID(data, id)
-            
-            if result==-1:
-                input("원하는 무기를 찾을 수 없습니다. 다시 시도해주세요.")
+            if len(id)<13:
+                print("입력하신 코드를 포함하는 자료를 모두 찾습니다. 시간이 조금 걸릴 수 있습니다.")
+                lst = searchID_sim(data, id)
+                for idx in range(0,len(lst)):
+                    print(idx+1,". name: ",data[idx][2]," code: ",data[idx][3])
+                input("세부정보를 확인하고 싶으시다면, 위 결과를 이용해 2i 서치를 돌려주세요.")
             else:
-                print("요청하신 무기 정보는 다음과 같습니다:")
-                print("무기종류: ",data[result][1])
-                print("무기이름: ",data[result][2])
-                print("무기코드: ",data[result][3])
-                print("무기가격: ",data[result][4])
-                print("세부사항: ",data[result][5])
-                input("\n계속하려면 아무 키나 눌러주세요(홈화면으로 나가집니다)")
+                result = searchID(data, id)
+                
+                if result==-1:
+                    input("원하는 무기를 찾을 수 없습니다. 다시 시도해주세요.")
+                else:
+                    print("\n","-"*50)
+                    print("요청하신 무기 정보는 다음과 같습니다:")
+                    print("무기종류: ",data[result][1])
+                    print("무기이름: ",data[result][2])
+                    print("무기코드: ",data[result][3])
+                    print("무기가격: ",data[result][4])
+                    print("세부사항: ",data[result][5])
+                    input("\n계속하려면 아무 키나 눌러주세요(홈화면으로 나가집니다)")
         else:
             input("\nerror: 예약된 명령어가 아닙니다. 아무 키나 누른 후 다시 시도해주세요")
 
