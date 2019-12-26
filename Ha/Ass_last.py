@@ -16,7 +16,7 @@ C_YELLOW = "\033[33m"
 # uploadList(): 무기 목록인 weaponsInput.txt 편집모드로 읽기
 
 def uploadList():
-    file = open(".\ha\weaponsInput.txt", 'r', encoding='UTF-8')
+    file = open("./ha/weaponsInput.txt", 'r', encoding='UTF-8')
     return file
 
 # saveList(): 무기 목록을 커스텀한 네임을 가진 txt 로 출력. .py경로에 export
@@ -31,7 +31,7 @@ def saveList():
                 print(data[idx][Didx],end='')
             print("|")
     else:
-        newFile = open(".\Ha\{0}.txt".format(name), "w", encoding='UTF-8')
+        newFile = open("./Ha/{0}.txt".format(name), "w", encoding='UTF-8')
         newFile.write("# 샵으로 시작하면 주석처리됩니다.\n# |무기종류|무기이름|상품코드|가격|비고|\n# 무기 코드는 최소 15글자 (종류최소2글자, 식별번호 최소 13자)를 준수해야 합니다.\n# 무기 코드에는 특수문자, 공백, 대문자를 쓸 수 없습니다.")
         for idx in range(0, len(data)):
             for Didx in range(1, 6):
@@ -214,9 +214,12 @@ def manangeWeapon():
     global data
     print(("□ "*50+'\n')*3)
     print("Accessing...")
-    for i in range(0, 3):
-        time.sleep(1)
-        print("□ "*50)
+    time.sleep(1)
+    print("\r"+"□ "*50, end='')
+    time.sleep(1)
+    print("\r"+"■ "*20+"□ "*30, end='')
+    time.sleep(1)
+    print("\r"+"■ "*50)
     time.sleep(1)
     print(C_BLUE+"USER: "+getpass.getuser())
     time.sleep(1)
